@@ -1,40 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Snehan Majumder</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+  <title>snehan majumder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream: #f9f8f6;
-      --dark: #121212;
-      --muted: #6b6b6b;
-      --accent: #1a2e4a;
-      --link: #1a3a5c;
-      --border: #e0ddd8;
+      --bg: #f9f8f6;
+      --dark: #111;
+      --muted: #888;
+      --navy: #1a3a5c;
+      --border: #e2dfd9;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Source Serif 4', serif;
-      background: var(--cream);
+      background: var(--bg);
       color: var(--dark);
       font-size: 16px;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    /* NAV */
     nav {
       display: flex;
       justify-content: flex-end;
-      gap: 2rem;
-      padding: 1.2rem 3rem;
+      gap: 2.2rem;
+      padding: 1.4rem 3.5rem;
       border-bottom: 1px solid var(--border);
-      background: var(--cream);
+      background: var(--bg);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -42,138 +40,111 @@
 
     nav a {
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--muted);
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
       transition: color 0.2s;
     }
 
     nav a:hover, nav a.active { color: var(--dark); }
 
-    /* PAGES */
-    .page { display: none; max-width: 760px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .page { display: none; max-width: 720px; margin: 0 auto; padding: 5rem 2rem 8rem; }
     .page.active { display: block; }
 
     /* ABOUT */
     .about-grid {
       display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 3.5rem;
+      grid-template-columns: 240px 1fr;
+      gap: 4rem;
       align-items: start;
     }
 
-    .about-photo {
+    .about-grid img {
       width: 100%;
-      aspect-ratio: 3/4;
+      aspect-ratio: 1/1;
       object-fit: cover;
-      border-radius: 4px;
-      background: var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-      text-align: center;
-    }
-
-    .photo-placeholder {
-      width: 100%;
-      aspect-ratio: 3/4;
-      background: var(--border);
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-      text-align: center;
+      object-position: center top;
+      border-radius: 3px;
     }
 
     .about-text h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
+      font-size: 1.9rem;
+      font-weight: 400;
+      margin-bottom: 1.8rem;
       letter-spacing: -0.01em;
     }
 
     .about-text p {
-      color: #3a3a3a;
+      color: #444;
       margin-bottom: 1rem;
-      font-size: 0.95rem;
+      font-size: 0.93rem;
+      font-weight: 300;
     }
 
-    .social-links {
-      margin-top: 1.6rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
+    .about-text a { color: var(--navy); text-decoration: none; }
+    .about-text a:hover { text-decoration: underline; }
 
-    .social-links a {
-      color: var(--link);
+    .social { margin-top: 2rem; }
+    .social a {
+      color: var(--navy);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.84rem;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 0.45rem;
     }
-
-    .social-links a:hover { text-decoration: underline; }
+    .social a:hover { text-decoration: underline; }
 
     /* RESEARCH & PROJECTS */
-    .section-header {
-      margin-bottom: 2.5rem;
-    }
-
-    .section-header h1 {
+    .page-title {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 600;
+      font-size: 1.75rem;
+      font-weight: 400;
+      margin-bottom: 3rem;
     }
 
-    .section-header p {
-      color: var(--muted);
-      margin-top: 0.3rem;
-      font-size: 0.9rem;
+    .entry {
+      padding: 2.2rem 0;
+      border-top: 1px solid var(--border);
     }
-
-    .divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
-
-    .entry { padding: 2rem 0; }
 
     .entry-label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--link);
+      color: var(--navy);
       margin-bottom: 0.5rem;
     }
 
     .entry h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      font-weight: 600;
+      font-size: 1.15rem;
+      font-weight: 400;
       margin-bottom: 0.3rem;
     }
 
     .entry-meta {
-      font-size: 0.82rem;
+      font-size: 0.79rem;
       color: var(--muted);
       margin-bottom: 0.9rem;
     }
 
+    .entry-meta a { color: var(--navy); text-decoration: none; }
+    .entry-meta a:hover { text-decoration: underline; }
+
     .entry p {
-      font-size: 0.93rem;
-      color: #3a3a3a;
-      margin-bottom: 0.7rem;
+      font-size: 0.91rem;
+      color: #444;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
     }
 
     .entry .tldr {
       font-style: italic;
       color: var(--muted);
-      font-size: 0.88rem;
+      font-size: 0.86rem;
+      margin-top: 0.3rem;
     }
 
     .tags {
@@ -184,120 +155,292 @@
     }
 
     .tag {
-      border: 1px solid var(--link);
-      color: var(--link);
-      font-size: 0.75rem;
-      padding: 0.2rem 0.65rem;
+      border: 1px solid #b8c4ce;
+      color: var(--navy);
+      font-size: 0.7rem;
+      padding: 0.16rem 0.55rem;
       border-radius: 999px;
+      letter-spacing: 0.02em;
     }
 
-    .entry a.ext-link {
-      color: var(--link);
-      font-size: 0.85rem;
-      text-decoration: none;
+    /* WORDLE */
+    #wordle-section {
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
     }
-    .entry a.ext-link:hover { text-decoration: underline; }
 
-    @media (max-width: 640px) {
-      .about-grid { grid-template-columns: 1fr; }
-      nav { gap: 1.2rem; padding: 1rem 1.5rem; }
+    #wordle-section .wordle-intro {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1.4rem;
+      font-style: italic;
+    }
+
+    #wordle-board {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-bottom: 1.2rem;
+    }
+
+    .wordle-row { display: flex; gap: 5px; }
+
+    .wordle-tile {
+      width: 44px;
+      height: 44px;
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--dark);
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+
+    .wordle-tile.filled { border-color: #aaa; }
+    .wordle-tile.correct { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .wordle-tile.present { background: #9a8c74; color: #fff; border-color: #9a8c74; }
+    .wordle-tile.absent  { background: #c5c1bb; color: #fff; border-color: #c5c1bb; }
+
+    #wordle-keyboard {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      max-width: 320px;
+    }
+
+    .kb-row { display: flex; gap: 4px; justify-content: center; }
+
+    .kb-key {
+      min-width: 28px;
+      height: 36px;
+      padding: 0 5px;
+      background: #eae7e1;
+      border: none;
+      border-radius: 3px;
+      font-family: 'Source Serif 4', serif;
+      font-size: 0.72rem;
+      cursor: pointer;
+      color: var(--dark);
+      transition: background 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .kb-key:hover { background: #d5d1c8; }
+    .kb-key.wide { min-width: 44px; font-size: 0.62rem; }
+    .kb-key.correct { background: var(--navy); color: #fff; }
+    .kb-key.present { background: #9a8c74; color: #fff; }
+    .kb-key.absent  { background: #bbb; color: #fff; }
+
+    #wordle-msg {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.8rem;
+      font-style: italic;
+      min-height: 1.2rem;
+    }
+
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
+
+    @media (max-width: 600px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-grid img { width: 55%; }
+      nav { gap: 1.4rem; padding: 1rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="#" class="active" onclick="show('about', this)">About</a>
-  <a href="#" onclick="show('research', this)">Research</a>
-  <a href="#" onclick="show('projects', this)">Projects</a>
+  <a href="#" class="active" onclick="show('about',this);return false;">about</a>
+  <a href="#" onclick="show('research',this);return false;">research</a>
+  <a href="#" onclick="show('projects',this);return false;">projects</a>
 </nav>
 
 <!-- ABOUT -->
 <div class="page active" id="about">
   <div class="about-grid">
-    <div class="photo-placeholder">your photo here</div>
+    <img src="photo.jpg" alt="Snehan Majumder"/>
     <div class="about-text">
-      <h1>Snehan Majumder</h1>
-      <p>I'm an undergrad at UC Berkeley studying Molecular Cell Biology & Data Science.</p>
-      <p>I like playing guitar, tennis, running, hiking, puzzle games (NYT), and reading.</p>
-      <p>Broadly, I'm interested in orthopedics, AI in healthcare, medicine, modern philosophy, and art history — but always exploring new things!</p>
-      <p>On campus, I'm part of <a href="#" style="color:var(--link)">Phoenix Consulting Group</a>.</p>
-      <div class="social-links">
+      <h1>snehan majumder</h1>
+      <p>undergrad at uc berkeley — molecular cell biology & data science.</p>
+      <p>guitar, tennis, running, hiking, nyt puzzles, reading.</p>
+      <p>interested in orthopedics, AI in healthcare, medicine, modern philosophy, and art history.</p>
+      <p>on campus: <a href="https://www.berkeleypcg.com" target="_blank">phoenix consulting group</a>.</p>
+      <div class="social">
         <a href="https://www.linkedin.com/in/snehan-majumder" target="_blank">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/></svg>
-          LinkedIn
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/></svg>
+          linkedin
         </a>
       </div>
     </div>
+  </div>
+
+  <div id="wordle-section">
+    <p class="wordle-intro">guess the word — 6 letters, 6 tries.</p>
+    <div id="wordle-board"></div>
+    <div id="wordle-keyboard"></div>
+    <div id="wordle-msg"></div>
   </div>
 </div>
 
 <!-- RESEARCH -->
 <div class="page" id="research">
-  <div class="section-header">
-    <h1>Research</h1>
-    <p>The Science Stuff</p>
-  </div>
-  <hr class="divider"/>
+  <h1 class="page-title">research</h1>
 
   <div class="entry">
-    <div class="entry-label">UCSF · Quantitative Biomarkers & AI in MSK Imaging Lab</div>
-    <h2>Osteoarthritis Initiative — Agentic LLM for Clinical Research</h2>
+    <div class="entry-label">UCSF · MSK imaging research lab</div>
+    <h2>osteoarthritis initiative — agentic LLM</h2>
     <div class="entry-meta">
-      Undergraduate Research Assistant · San Francisco, CA · January 2026 – Present<br/>
-      Advised by <strong>Dr. Sharmila Majumdar</strong> · Working with <strong>Felix Liu</strong> and <strong>Beck Olson</strong>
+      jan 2026 – present &nbsp;·&nbsp; with felix liu & beck olson, advised by
+      <a href="https://radiology.ucsf.edu/research/labs/quantitative-biomarkers-and-artificial-intelligence-musculoskeletal-imaging" target="_blank">dr. sharmila majumdar</a>
     </div>
-    <p>Developing an agentic LLM for natural language querying of the Osteoarthritis Initiative database (4,796 patients), vectorizing publications and using RAG and MCP structures to produce responses for researchers and clinical physicians across UCSF.</p>
-    <p>Validating AI-generated SQL queries across tables to ensure medical accuracy and proper data relationships. Creating prompt engineering strategies and documentation to improve database accessibility for OA researchers.</p>
-    <p>Analyzing MRI biomarkers — cartilage T2, WORMS, and bone marrow lesions — to ensure accurate clinical interpretation.</p>
-    <p class="tldr">tldr: I sort things and make things answer questions.</p>
-    <div style="margin-top:0.8rem">
-      <a class="ext-link" href="https://radiology.ucsf.edu/research/labs/quantitative-biomarkers-and-artificial-intelligence-musculoskeletal-imaging" target="_blank">→ Lab Website</a>
-    </div>
+    <p>building an agentic LLM for natural language querying of the OAI database (4,796 patients) using RAG and MCP structures.</p>
+    <p>validating AI-generated SQL queries and analyzing MRI biomarkers for clinical accuracy.</p>
+    <p class="tldr">tldr: i sort things and make things answer questions.</p>
     <div class="tags">
       <span class="tag">LLM</span>
       <span class="tag">RAG</span>
       <span class="tag">MCP</span>
       <span class="tag">SQL</span>
-      <span class="tag">Prompt Engineering</span>
-      <span class="tag">MRI Biomarkers</span>
       <span class="tag">Python</span>
+      <span class="tag">MRI Biomarkers</span>
     </div>
   </div>
 </div>
 
 <!-- PROJECTS -->
 <div class="page" id="projects">
-  <div class="section-header">
-    <h1>Projects</h1>
-    <p>Things I've Built</p>
-  </div>
-  <hr class="divider"/>
+  <h1 class="page-title">projects</h1>
 
   <div class="entry">
-    <div class="entry-label">Developer & Educator · Berkeley, CA</div>
-    <h2>Folio — Educational Finance Platform</h2>
-    <div class="entry-meta">November 2025 – Present</div>
-    <p>Developed a paper trading platform teaching 7 high school students investment fundamentals using live market data.</p>
-    <p>Multi-platform build with a Python Flask backend, React.js web dashboard, and Alpaca Markets API integration. Implemented safety features with position limits and multi-layer validation to prevent mistaken trades.</p>
-    <p>Designed an intuitive interface with real-time portfolio tracking, P&L calculations, and JSON-based trade history.</p>
+    <div class="entry-label">developer & educator · berkeley, CA</div>
+    <h2>folio — educational finance platform</h2>
+    <div class="entry-meta">nov 2025 – present</div>
+    <p>paper trading platform for 7 high school students using live market data.</p>
+    <p>flask backend, react.js dashboard, alpaca markets API — with position limits and trade validation.</p>
     <div class="tags">
       <span class="tag">Python</span>
       <span class="tag">Flask</span>
       <span class="tag">React.js</span>
       <span class="tag">Alpaca API</span>
-      <span class="tag">Finance</span>
     </div>
   </div>
 </div>
 
 <script>
-  function show(pageId, el) {
+  function show(id, el) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-    document.getElementById(pageId).classList.add('active');
+    document.getElementById(id).classList.add('active');
     el.classList.add('active');
-    return false;
+  }
+
+  // ── WORDLE ──
+  const ANSWER = 'SNEHAN';
+  const MAX_GUESSES = 6;
+  const WORD_LEN = 6;
+  let currentRow = 0, currentCol = 0, currentGuess = [], gameOver = false;
+  const board = [];
+  const keyMap = {};
+
+  const boardEl = document.getElementById('wordle-board');
+  const kbEl    = document.getElementById('wordle-keyboard');
+  const msgEl   = document.getElementById('wordle-msg');
+
+  for (let r = 0; r < MAX_GUESSES; r++) {
+    const row = document.createElement('div');
+    row.className = 'wordle-row';
+    board[r] = [];
+    for (let c = 0; c < WORD_LEN; c++) {
+      const tile = document.createElement('div');
+      tile.className = 'wordle-tile';
+      row.appendChild(tile);
+      board[r][c] = tile;
+    }
+    boardEl.appendChild(row);
+  }
+
+  [['Q','W','E','R','T','Y','U','I','O','P'],
+   ['A','S','D','F','G','H','J','K','L'],
+   ['↵','Z','X','C','V','B','N','M','⌫']].forEach(keys => {
+    const rowEl = document.createElement('div');
+    rowEl.className = 'kb-row';
+    keys.forEach(k => {
+      const btn = document.createElement('button');
+      btn.className = 'kb-key' + (k==='↵'||k==='⌫' ? ' wide' : '');
+      btn.textContent = k;
+      btn.addEventListener('click', () => handleKey(k));
+      if (k!=='↵' && k!=='⌫') keyMap[k] = btn;
+      rowEl.appendChild(btn);
+    });
+    kbEl.appendChild(rowEl);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key==='Enter') handleKey('↵');
+    else if (e.key==='Backspace') handleKey('⌫');
+    else if (/^[a-zA-Z]$/.test(e.key)) handleKey(e.key.toUpperCase());
+  });
+
+  function handleKey(k) {
+    if (gameOver) return;
+    if (k==='⌫') {
+      if (currentCol>0) { currentCol--; currentGuess.pop(); board[currentRow][currentCol].textContent=''; board[currentRow][currentCol].classList.remove('filled'); }
+    } else if (k==='↵') {
+      if (currentCol<WORD_LEN) { shakeRow(currentRow); return; }
+      submitGuess();
+    } else if (currentCol<WORD_LEN) {
+      board[currentRow][currentCol].textContent = k;
+      board[currentRow][currentCol].classList.add('filled');
+      currentGuess.push(k);
+      currentCol++;
+    }
+  }
+
+  function submitGuess() {
+    const guess = currentGuess.join('');
+    const result = score(guess);
+    revealRow(currentRow, result, guess);
+    currentRow++; currentCol=0; currentGuess=[];
+    if (guess===ANSWER) { setTimeout(()=>{ msgEl.textContent='🎉 nice one.'; }, 1400); gameOver=true; }
+    else if (currentRow===MAX_GUESSES) { setTimeout(()=>{ msgEl.textContent='the word was snehan.'; }, 1400); gameOver=true; }
+  }
+
+  function score(guess) {
+    const res = Array(WORD_LEN).fill('absent');
+    const ans = [...ANSWER], g = [...guess];
+    g.forEach((l,i) => { if(l===ans[i]){ res[i]='correct'; ans[i]=null; g[i]=null; } });
+    g.forEach((l,i) => { if(!l) return; const j=ans.indexOf(l); if(j!==-1){ res[i]='present'; ans[j]=null; } });
+    return res;
+  }
+
+  function revealRow(row, result, guess) {
+    result.forEach((state, i) => {
+      setTimeout(() => {
+        board[row][i].classList.add(state);
+        const k = guess[i];
+        if (keyMap[k]) {
+          if (!keyMap[k].classList.contains('correct') && !(keyMap[k].classList.contains('present') && state==='absent')) {
+            keyMap[k].className = 'kb-key ' + state;
+          }
+        }
+      }, i * 180);
+    });
+  }
+
+  function shakeRow(row) {
+    board[row].forEach(t => { t.style.animation='none'; t.offsetHeight; t.style.animation='shake 0.3s ease'; });
   }
 </script>
 </body>
