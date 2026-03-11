@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Snehan Majumder</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f9f8f6;
+      --dark: #121212;
+      --muted: #6b6b6b;
+      --accent: #1a2e4a;
+      --link: #1a3a5c;
+      --border: #e0ddd8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Source Serif 4', serif;
+      background: var(--cream);
+      color: var(--dark);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      gap: 2rem;
+      padding: 1.2rem 3rem;
+      border-bottom: 1px solid var(--border);
+      background: var(--cream);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    nav a:hover, nav a.active { color: var(--dark); }
+
+    /* PAGES */
+    .page { display: none; max-width: 760px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .page.active { display: block; }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      border-radius: 4px;
+      background: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .about-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .about-text p {
+      color: #3a3a3a;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .social-links {
+      margin-top: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .social-links a {
+      color: var(--link);
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .social-links a:hover { text-decoration: underline; }
+
+    /* RESEARCH & PROJECTS */
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .section-header p {
+      color: var(--muted);
+      margin-top: 0.3rem;
+      font-size: 0.9rem;
+    }
+
+    .divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+    .entry { padding: 2rem 0; }
+
+    .entry-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--link);
+      margin-bottom: 0.5rem;
+    }
+
+    .entry h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .entry-meta {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+    }
+
+    .entry p {
+      font-size: 0.93rem;
+      color: #3a3a3a;
+      margin-bottom: 0.7rem;
+    }
+
+    .entry .tldr {
+      font-style: italic;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      border: 1px solid var(--link);
+      color: var(--link);
+      font-size: 0.75rem;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    .entry a.ext-link {
+      color: var(--link);
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    .entry a.ext-link:hover { text-decoration: underline; }
+
+    @media (max-width: 640px) {
+      .about-grid { grid-template-columns: 1fr; }
+      nav { gap: 1.2rem; padding: 1rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="active" onclick="show('about', this)">About</a>
+  <a href="#" onclick="show('research', this)">Research</a>
+  <a href="#" onclick="show('projects', this)">Projects</a>
+</nav>
+
+<!-- ABOUT -->
+<div class="page active" id="about">
+  <div class="about-grid">
+    <div class="photo-placeholder">your photo here</div>
+    <div class="about-text">
+      <h1>Snehan Majumder</h1>
+      <p>I'm an undergrad at UC Berkeley studying Molecular Cell Biology & Data Science.</p>
+      <p>I like playing guitar, tennis, running, hiking, puzzle games (NYT), and reading.</p>
+      <p>Broadly, I'm interested in orthopedics, AI in healthcare, medicine, modern philosophy, and art history — but always exploring new things!</p>
+      <p>On campus, I'm part of <a href="#" style="color:var(--link)">Phoenix Consulting Group</a>.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/snehan-majumder" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.27c-.97 0-1.75-.79-1.75-1.76s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.76-1.75 1.76zm13.5 11.27h-3v-5.6c0-1.34-.03-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97v5.7h-3v-10h2.88v1.36h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v5.61z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESEARCH -->
+<div class="page" id="research">
+  <div class="section-header">
+    <h1>Research</h1>
+    <p>The Science Stuff</p>
+  </div>
+  <hr class="divider"/>
+
+  <div class="entry">
+    <div class="entry-label">UCSF · Quantitative Biomarkers & AI in MSK Imaging Lab</div>
+    <h2>Osteoarthritis Initiative — Agentic LLM for Clinical Research</h2>
+    <div class="entry-meta">
+      Undergraduate Research Assistant · San Francisco, CA · January 2026 – Present<br/>
+      Advised by <strong>Dr. Sharmila Majumdar</strong> · Working with <strong>Felix Liu</strong> and <strong>Beck Olson</strong>
+    </div>
+    <p>Developing an agentic LLM for natural language querying of the Osteoarthritis Initiative database (4,796 patients), vectorizing publications and using RAG and MCP structures to produce responses for researchers and clinical physicians across UCSF.</p>
+    <p>Validating AI-generated SQL queries across tables to ensure medical accuracy and proper data relationships. Creating prompt engineering strategies and documentation to improve database accessibility for OA researchers.</p>
+    <p>Analyzing MRI biomarkers — cartilage T2, WORMS, and bone marrow lesions — to ensure accurate clinical interpretation.</p>
+    <p class="tldr">tldr: I sort things and make things answer questions.</p>
+    <div style="margin-top:0.8rem">
+      <a class="ext-link" href="https://radiology.ucsf.edu/research/labs/quantitative-biomarkers-and-artificial-intelligence-musculoskeletal-imaging" target="_blank">→ Lab Website</a>
+    </div>
+    <div class="tags">
+      <span class="tag">LLM</span>
+      <span class="tag">RAG</span>
+      <span class="tag">MCP</span>
+      <span class="tag">SQL</span>
+      <span class="tag">Prompt Engineering</span>
+      <span class="tag">MRI Biomarkers</span>
+      <span class="tag">Python</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="page" id="projects">
+  <div class="section-header">
+    <h1>Projects</h1>
+    <p>Things I've Built</p>
+  </div>
+  <hr class="divider"/>
+
+  <div class="entry">
+    <div class="entry-label">Developer & Educator · Berkeley, CA</div>
+    <h2>Folio — Educational Finance Platform</h2>
+    <div class="entry-meta">November 2025 – Present</div>
+    <p>Developed a paper trading platform teaching 7 high school students investment fundamentals using live market data.</p>
+    <p>Multi-platform build with a Python Flask backend, React.js web dashboard, and Alpaca Markets API integration. Implemented safety features with position limits and multi-layer validation to prevent mistaken trades.</p>
+    <p>Designed an intuitive interface with real-time portfolio tracking, P&L calculations, and JSON-based trade history.</p>
+    <div class="tags">
+      <span class="tag">Python</span>
+      <span class="tag">Flask</span>
+      <span class="tag">React.js</span>
+      <span class="tag">Alpaca API</span>
+      <span class="tag">Finance</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  function show(pageId, el) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+    document.getElementById(pageId).classList.add('active');
+    el.classList.add('active');
+    return false;
+  }
+</script>
+</body>
+</html>
